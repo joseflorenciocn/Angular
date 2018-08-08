@@ -1,0 +1,34 @@
+<div class="center">
+    <h2>Positions</h2>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
+</div>
+
+<div class="center" *ngIf = loadingError>
+    <h4>Data Not Found!</h4>
+</div>
+
+<div class="container" *ngIf = !loadingError>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="table-responsive">
+            <app-loading-spinner *ngIf="showspinner"></app-loading-spinner>
+              <table class="table table-condensed table-hover" >
+                <thead>
+                    <tr>
+                        <td><b>Position Title</b></td> 
+                        <td><b>Position Description</b></td> 
+                        <td><b>Salary</b></td>              
+                    </tr>         
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pos of positions">
+                        <td>{{pos.PositionName}}</td> 
+                        <td>{{pos.PositionDescription}}</td>
+                        <td>${{pos.PositionBaseSalary | number:'.2'}}</td>
+                    </tr>                
+                </tbody>
+              </table>
+              </div>
+      </div>
+    </div>
+  </div>

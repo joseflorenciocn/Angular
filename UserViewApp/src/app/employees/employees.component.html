@@ -1,0 +1,48 @@
+<div class="center">
+    <h2>Employees</h2>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
+</div>  
+
+<div class="center" *ngIf = loadingError>
+    <h4>Data Not Found!</h4>
+</div>
+
+<div class="container" *ngIf = !loadingError>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <app-loading-spinner *ngIf="showspinner"></app-loading-spinner>
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+                <td><b>Full Name</b></td> 
+                <td><b>Address</b></td> 
+                <td><b>Phone Number</b></td> 
+                <td><b>Hire Date</b></td>              
+            </tr>           
+          </thead>
+          <tbody>
+              <tr *ngFor="let emp of employees">
+                  <td>{{emp.FirstName}} {{emp.LastName}} </td> 
+                  <td>{{emp.AddressStreet}}, {{emp.AddressCity}} {{emp.AddressState}}, {{emp.AddressZip}}</td>
+                  <td>{{emp.PhoneNum}} ex: {{emp.Extension}}</td>
+                  <td>{{emp.HireDate | date:'longDate'}}</td>
+              </tr>                 
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <!--
+
+        <td *ngFor="let employee of emp"> {employee.FirstName}</td>
+
+<li *ngFor="let emp of employeesSub">
+        Name: {{emp.FirstName}}
+      </li>
+
+      -->
